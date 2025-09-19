@@ -1,0 +1,248 @@
+/* Hacer sticky el header principal de Blocksy */
+#header.ct-header {
+    position: sticky;
+    top: 0;
+    z-index: 99;
+    background: #000;
+    box-shadow: 0 2px 12px -8px rgba(0,0,0,0.10);
+}
+/* z-index: 99; */
+/* background: #000; /* o el color que uses */ */
+/* box-shadow: 0 2px 12px -8px rgba(0,0,0,0.10); */
+
+/* Ajustar imagen en Quick View - MÁS ESPECÍFICO */
+.woocommerce div.product div.images,
+.mfp-content .woocommerce div.product div.images {
+    width: 48% !important;
+    min-width: 300px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    min-height: 450px !important;
+}
+
+.woocommerce div.product div.images img,
+.mfp-content .woocommerce div.product div.images img {
+    width: 100% !important;
+    height: auto !important;
+    max-width: 400px !important;
+    max-height: 400px !important;
+    object-fit: contain !important;
+}
+
+/* Específico para el contenedor de la galería */
+.woocommerce div.product div.images .woocommerce-product-gallery,
+.mfp-content .woocommerce div.product div.images .woocommerce-product-gallery {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/* Para el figure que contiene la imagen */
+.woocommerce div.product div.images figure,
+.mfp-content .woocommerce div.product div.images figure {
+    margin: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    height: 100% !important;
+}
+/* FIX final para que el texto de los selects se vea completo */
+#cotizadorForm select {
+  padding: 12px 18px !important;      /* espacio cómodo */
+  font-size: 16px !important;
+  line-height: 1.25 !important;
+  height: 46px !important;            /* altura consistente */
+  min-height: 46px !important;
+  box-sizing: border-box !important;
+  text-indent: 0 !important;
+  letter-spacing: normal !important;
+  transform: none !important;
+  overflow: visible !important;
+  color: #222 !important;
+  -webkit-text-fill-color: #222 !important;
+  text-shadow: none !important;
+  background-color: #fff !important;
+  /* por si algún estilo mete máscara o clipping raro */
+  -webkit-mask: none !important;
+  mask: none !important;
+}
+
+#cotizadorForm select option {
+  line-height: 1.3 !important;
+  padding: 4px 6px !important;
+  font-size: 16px !important;
+}
+
+#cotizadorForm .input-group {
+  min-width: 230px; /* asegura espacio en el grid para que no comprima demasiado */
+}
+
+@media (max-width: 600px) {
+  #cotizadorForm select {
+    height: 44px !important;
+  }
+}
+
+/* Botón de eliminar en el cotizador */
+table.shop_table .product-remove a.remove {
+  font-size: 22px;       /* agranda la X */
+  color: #E30613;        /* rojo MIKEL'S */
+  font-weight: bold;
+  display: inline-block;
+  padding: 6px 10px;
+  border: 1px solid #E30613;
+  border-radius: 6px;
+  text-decoration: none;
+}
+
+/* Efecto hover */
+table.shop_table .product-remove a.remove:hover {
+  background: #E30613;
+  color: #fff;
+}
+
+/* ====== Vars & helpers ====== */
+:root{
+  --mk-wrap: 1200px;
+  --mk-pad: clamp(12px, 2.5vw, 24px);
+  --mk-gap: clamp(10px, 2vw, 20px);
+  --mk-brand: #e8002a;
+  --mk-dark: #222;
+  --mk-text: #333;
+}
+.mk-container{max-width:var(--mk-wrap);margin:0 auto;padding:0 var(--mk-pad)}
+.mk-shadow{box-shadow:0 5px 14px -7px rgba(0,0,0,.18)}
+img,svg{max-width:100%;height:auto}
+
+/* ====== BLOQUE 1 – Toolbar (buscador + categorías + todos) ====== */
+.mk-toolbar{
+  display:flex; flex-wrap:wrap; align-items:center; gap:var(--mk-gap);
+  justify-content:center;
+}
+.mk-toolbar .mk-search{flex:1 1 420px; min-width:260px; position:relative}
+.mk-toolbar .mk-search input{
+  width:100%; padding:10px 44px 10px 14px; border-radius:6px; border:1px solid #ccc;
+  font-size:16px; outline:none
+}
+.mk-toolbar .mk-search button{
+  position:absolute; right:6px; top:50%; transform:translateY(-50%);
+  background:none; border:none; padding:6px; cursor:pointer
+}
+
+/* details/summary = dropdown accesible (sin JS) */
+.mk-dd{position:relative; flex:0 0 auto}
+.mk-dd summary{
+  list-style:none; cursor:pointer; user-select:none;
+  padding:10px 18px; border-radius:6px; border:0; background:var(--mk-brand);
+  color:#fff; font-weight:700; font-size:16px;
+}
+.mk-dd summary::-webkit-details-marker{display:none}
+.mk-dd .mk-dd-list{
+  position:absolute; left:0; top:calc(100% + 6px);
+  background:#fff; min-width:220px; border-radius:8px; overflow:hidden;
+  box-shadow:0 8px 16px rgba(0,0,0,.1); z-index:20; display:none
+}
+.mk-dd[open] .mk-dd-list{display:block}
+.mk-dd .mk-dd-list a{
+  display:block; padding:10px 16px; color:var(--mk-dark); text-decoration:none
+}
+.mk-dd .mk-dd-list a:hover{background:#f1f1f1}
+
+.mk-toolbar .mk-all{
+  padding:10px 18px; border-radius:6px; text-decoration:none; font-weight:700;
+  background:var(--mk-dark); color:#fff; display:inline-block
+}
+.mk-toolbar .mk-all:hover{background:var(--mk-brand)}
+
+/* ====== BLOQUE 2 – Promo bar ====== */
+.mk-promo{
+  background:#fff; border-radius:8px; padding:18px clamp(14px,3vw,36px);
+  margin:24px auto 0; width:100%;
+  display:flex; align-items:center; justify-content:space-between; gap:var(--mk-gap)
+}
+.mk-promo .mk-col{flex:1 1 0; text-align:center}
+.mk-promo .mk-col img{height:48px}
+.mk-promo .mk-col .mk-title{font-weight:800; letter-spacing:1.1px; font-size:clamp(16px,2vw,20px)}
+.mk-promo .mk-col .mk-sub{font-size:15px; color:#4a4a4a}
+
+@media (max-width:700px){
+  .mk-promo{flex-direction:column; text-align:center}
+}
+
+/* ====== BLOQUE 3 – Título "Nuestros más vendidos" ====== */
+.mk-title-wrap{text-align:center; margin-top:38px}
+.mk-title-wrap h2{
+  margin:0; font-weight:800; color:var(--mk-brand); font-size:clamp(22px,3vw,32px)
+}
+.mk-title-wrap .mk-hr{
+  width:120px; height:0; border:0; border-top:2px solid var(--mk-brand);
+  margin:12px auto 32px; border-radius:2px
+}
+
+/* ====== BLOQUE 4 – Banner "LO MÁS VENDIDO" ====== */
+.mk-best-banner{
+  width:100%; margin: clamp(28px,4vw,50px) auto clamp(16px,3vw,30px);
+  background:linear-gradient(90deg, var(--mk-brand) 0%, #222 100%);
+  color:#fff; font-weight:800; letter-spacing:1.5px; text-align:center;
+  border-radius:8px; padding:clamp(12px,2vw,18px) 0;
+  font-size:clamp(18px,2.4vw,32px);
+  animation:mk-fadeDown 1s ease both;
+}
+@keyframes mk-fadeDown{from{opacity:0; transform:translateY(-14px)} to{opacity:1; transform:none}}
+
+/* ====== BLOQUE 5 – Sección ubicación ====== */
+.mk-loc{
+  display:flex; flex-wrap:wrap; align-items:center; justify-content:center;
+  gap:32px; background:linear-gradient(90deg,#fff 60%, #e8002a10 100%);
+  border-radius:16px; margin:48px auto 32px; padding:32px 18px
+}
+.mk-loc .mk-lc{flex:1 1 340px; min-width:260px}
+.mk-loc h2{color:var(--mk-brand); font-weight:800; margin:0 0 10px; font-size:clamp(20px,3vw,32px)}
+.mk-loc p{font-size:clamp(15px,2.2vw,18px); color:#222; margin:0 0 14px}
+.mk-loc .mk-btn{
+  display:inline-block; background:var(--mk-brand); color:#fff; font-weight:800;
+  padding:10px 22px; border-radius:8px; text-decoration:none;
+  box-shadow:0 3px 10px -5px #e8002a80; transition:.2s
+}
+.mk-loc .mk-btn:hover{background:#a6001c; transform:scale(1.05)}
+.mk-loc .mk-map{flex:1 1 320px; min-width:260px}
+.mk-loc .mk-map iframe{
+  width:100%; border:0; border-radius:16px; box-shadow:0 4px 18px -7px rgba(232,0,42,.13);
+  aspect-ratio: 16/9; /* responsivo */
+}
+
+/* ====== BLOQUE 6 – Footer brand ====== */
+.mk-footer{
+  background:var(--mk-brand); color:#fff; margin:0; padding:36px 0 16px;
+  font-family:'Montserrat',system-ui,-apple-system,Segoe UI,Arial,sans-serif
+}
+.mk-footer .mk-foot{display:flex; flex-wrap:wrap; gap:32px; align-items:flex-start; justify-content:space-between}
+.mk-footer .mk-brand{flex:1 1 320px; min-width:220px; text-align:center}
+.mk-footer .mk-logo{width:150px; height:30px; margin-bottom:10px; object-fit:contain}
+.mk-footer .mk-brand-title{font-weight:800; letter-spacing:1px; margin-bottom:2px; font-size:1.2rem}
+.mk-footer .mk-brand-sub{color:#fffde9; margin-bottom:16px}
+.mk-footer .mk-social{display:flex; gap:14px; justify-content:center; align-items:center; margin-bottom:8px}
+.mk-footer .mk-social a svg{filter:drop-shadow(0 2px 6px #fff2); opacity:.88; transition:.23s}
+.mk-footer .mk-social a:hover svg{opacity:1; transform:scale(1.08)}
+.mk-footer .mk-social-label{font-weight:800; letter-spacing:2px; font-size:1.1rem}
+
+.mk-footer .mk-links{flex:2 1 480px; min-width:220px; display:flex; gap:38px; justify-content:center}
+.mk-footer .mk-col{min-width:150px}
+.mk-footer .mk-col-title{font-weight:800; margin-bottom:10px}
+.mk-footer .mk-col ul{list-style:none; margin:0 0 12px 0; padding:0}
+.mk-footer .mk-col li{margin-bottom:6px}
+.mk-footer .mk-col a{color:#fff; text-decoration:none}
+.mk-footer .mk-col a:hover{color:#ffd6e0; text-decoration:underline}
+.mk-footer .mk-copy{font-size:.92rem; margin-top:10px; color:#fffde9}
+
+@media (max-width:900px){
+  .mk-footer .mk-foot{flex-direction:column; align-items:center}
+  .mk-footer .mk-links{justify-content:flex-start; gap:22px}
+}
+@media (max-width:600px){
+  .mk-footer .mk-links{flex-direction:column; gap:10px}
+  .mk-footer .mk-logo{width:80px}
+}
