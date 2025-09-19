@@ -1,0 +1,62 @@
+<div class="best-sellers-grid">
+  [best_selling_products per_page="16" columns="4"]
+</div>
+
+<style>
+.best-sellers-grid {
+  max-width: 1300px;  /* antes sin límite, ahora más ancho */
+  margin: 0 auto;     /* centrado */
+  padding: 0 20px;    /* espacio lateral */
+}
+
+.best-sellers-grid ul.products {
+  display: grid !important;
+  grid-template-columns: repeat(4, minmax(220px, 1fr));
+  column-gap: 56px;   /* ← más separación horizontal */
+  row-gap: 36px;      /* separación vertical */
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* Tarjeta de producto */
+.best-sellers-grid ul.products li.product {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px -4px rgba(232,0,42,0.18);
+  transition: transform 0.3s, box-shadow 0.3s;
+  overflow: hidden;
+  position: relative;
+  animation: popIn 1s;
+  padding: 15px;
+}
+.best-sellers-grid ul.products li.product:hover {
+  transform: translateY(-7px) scale(1.035);
+  box-shadow: 0 8px 20px -6px #e8002ab0;
+}
+
+/* Animación */
+@keyframes popIn {
+  0% { opacity: 0; transform: scale(0.92);}
+  100% { opacity: 1; transform: scale(1);}
+}
+
+/* Responsive */
+@media (max-width: 1100px) {
+  .best-sellers-grid ul.products {
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 40px;
+  }
+}
+@media (max-width: 900px) {
+  .best-sellers-grid ul.products {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 28px;
+  }
+}
+@media (max-width: 600px) {
+  .best-sellers-grid ul.products {
+    grid-template-columns: 1fr;
+    column-gap: 0;
+  }
+}
+</style>
