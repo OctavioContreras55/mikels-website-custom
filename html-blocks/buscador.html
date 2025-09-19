@@ -1,0 +1,26 @@
+<section class="mk-container mk-toolbar">
+  <!-- Buscador -->
+  <form role="search" method="get" action="/" class="mk-search">
+    <input type="search" name="s" placeholder="Buscar productos…">
+    <button type="submit" aria-label="Buscar">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#e8002a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="11" cy="11" r="8"></circle>
+        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+      </svg>
+    </button>
+  </form>
+
+  <!-- Categorías (sin JS, accesible) -->
+  <details class="mk-dd">
+    <summary>Categorías ▾</summary>
+    <div class="mk-dd-list">
+      <a href="/categoria/automotriz/">Automotriz</a>
+      <a href="/categoria/cerrajeria/">Cerrajería</a>
+      <a href="/categoria/compresores/">Compresores</a>
+      <!-- Más categorías -->
+    </div>
+  </details>
+
+  <!-- Todos los productos -->
+  <a class="mk-all" href="/tienda/">Todos los productos</a>
+</section>
