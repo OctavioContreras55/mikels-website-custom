@@ -71,6 +71,7 @@ screenshots/*
 !screenshots/before/.gitkeep
 !screenshots/after/.gitkeep
 !screenshots/features/.gitkeep
+!screenshots/README.md
 
 # Backup Files
 *.backup
