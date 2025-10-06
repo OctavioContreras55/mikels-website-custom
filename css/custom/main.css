@@ -1,0 +1,324 @@
+/**
+ * Estilos CSS personalizados para Mikels E-commerce
+ * 
+ * @package Mikels WordPress Custom
+ * @author Mikels Dev Team
+ * @version 1.0.0
+ */
+
+/* ==========================================================================
+   Variables CSS
+   ========================================================================== */
+:root {
+  /* Colores primarios de marca */
+  --mikels-primary: #007cba;
+  --mikels-secondary: #ff6b35;
+  --mikels-accent: #4ecdc4;
+  --mikels-success: #27ae60;
+  --mikels-warning: #f39c12;
+  --mikels-error: #e74c3c;
+  
+  /* Colores neutrales */
+  --mikels-dark: #2c3e50;
+  --mikels-gray: #7f8c8d;
+  --mikels-light-gray: #bdc3c7;
+  --mikels-light: #ecf0f1;
+  --mikels-white: #ffffff;
+  
+  /* Tipografía */
+  --mikels-font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --mikels-heading-font: 'Poppins', var(--mikels-font-family);
+  
+  /* Espaciado */
+  --mikels-spacing-xs: 0.5rem;
+  --mikels-spacing-sm: 1rem;
+  --mikels-spacing-md: 1.5rem;
+  --mikels-spacing-lg: 2rem;
+  --mikels-spacing-xl: 3rem;
+  
+  /* Border radius */
+  --mikels-radius-sm: 4px;
+  --mikels-radius-md: 8px;
+  --mikels-radius-lg: 12px;
+  
+  /* Sombras */
+  --mikels-shadow-sm: 0 1px 3px rgba(0,0,0,0.12);
+  --mikels-shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+  --mikels-shadow-lg: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+/* ==========================================================================
+   Utilidades Generales
+   ========================================================================== */
+.mikels-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--mikels-spacing-sm);
+}
+
+.mikels-btn {
+  display: inline-block;
+  padding: var(--mikels-spacing-xs) var(--mikels-spacing-md);
+  background-color: var(--mikels-primary);
+  color: var(--mikels-white);
+  text-decoration: none;
+  border-radius: var(--mikels-radius-md);
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.mikels-btn:hover {
+  background-color: var(--mikels-dark);
+  transform: translateY(-2px);
+  box-shadow: var(--mikels-shadow-md);
+}
+
+.mikels-btn--secondary {
+  background-color: var(--mikels-secondary);
+}
+
+.mikels-btn--outline {
+  background-color: transparent;
+  color: var(--mikels-primary);
+  border: 2px solid var(--mikels-primary);
+}
+
+.mikels-btn--outline:hover {
+  background-color: var(--mikels-primary);
+  color: var(--mikels-white);
+}
+
+/* ==========================================================================
+   Header Personalizado
+   ========================================================================== */
+.mikels-header {
+  background-color: var(--mikels-white);
+  box-shadow: var(--mikels-shadow-sm);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.mikels-header__container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--mikels-spacing-sm) 0;
+}
+
+.mikels-logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--mikels-primary);
+  text-decoration: none;
+}
+
+.mikels-nav {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: var(--mikels-spacing-md);
+}
+
+.mikels-nav__link {
+  color: var(--mikels-dark);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.mikels-nav__link:hover {
+  color: var(--mikels-primary);
+}
+
+/* ==========================================================================
+   Secciones de Contenido
+   ========================================================================== */
+.mikels-hero {
+  background: linear-gradient(135deg, var(--mikels-primary) 0%, var(--mikels-accent) 100%);
+  color: var(--mikels-white);
+  padding: var(--mikels-spacing-xl) 0;
+  text-align: center;
+}
+
+.mikels-hero__title {
+  font-size: 3rem;
+  font-family: var(--mikels-heading-font);
+  margin-bottom: var(--mikels-spacing-md);
+  line-height: 1.2;
+}
+
+.mikels-hero__subtitle {
+  font-size: 1.25rem;
+  margin-bottom: var(--mikels-spacing-lg);
+  opacity: 0.9;
+}
+
+/* ==========================================================================
+   Cards y Productos
+   ========================================================================== */
+.mikels-card {
+  background-color: var(--mikels-white);
+  border-radius: var(--mikels-radius-lg);
+  box-shadow: var(--mikels-shadow-sm);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.mikels-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--mikels-shadow-lg);
+}
+
+.mikels-card__image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.mikels-card__content {
+  padding: var(--mikels-spacing-md);
+}
+
+.mikels-card__title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: var(--mikels-spacing-xs);
+  color: var(--mikels-dark);
+}
+
+.mikels-card__description {
+  color: var(--mikels-gray);
+  margin-bottom: var(--mikels-spacing-md);
+  line-height: 1.6;
+}
+
+.mikels-card__price {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--mikels-primary);
+  margin-bottom: var(--mikels-spacing-md);
+}
+
+/* ==========================================================================
+   Grid Systems
+   ========================================================================== */
+.mikels-grid {
+  display: grid;
+  gap: var(--mikels-spacing-md);
+}
+
+.mikels-grid--2 {
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.mikels-grid--3 {
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.mikels-grid--4 {
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+.mikels-footer {
+  background-color: var(--mikels-dark);
+  color: var(--mikels-light);
+  padding: var(--mikels-spacing-xl) 0 var(--mikels-spacing-md);
+}
+
+.mikels-footer__content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--mikels-spacing-lg);
+  margin-bottom: var(--mikels-spacing-lg);
+}
+
+.mikels-footer__section h3 {
+  color: var(--mikels-white);
+  margin-bottom: var(--mikels-spacing-md);
+}
+
+.mikels-footer__bottom {
+  border-top: 1px solid var(--mikels-gray);
+  padding-top: var(--mikels-spacing-md);
+  text-align: center;
+  color: var(--mikels-light-gray);
+}
+
+/* ==========================================================================
+   Responsive Design
+   ========================================================================== */
+@media (max-width: 768px) {
+  .mikels-hero__title {
+    font-size: 2rem;
+  }
+  
+  .mikels-header__container {
+    flex-direction: column;
+    gap: var(--mikels-spacing-sm);
+  }
+  
+  .mikels-nav {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .mikels-grid--2,
+  .mikels-grid--3,
+  .mikels-grid--4 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ==========================================================================
+   Animaciones
+   ========================================================================== */
+@keyframes mikels-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.mikels-animate {
+  animation: mikels-fade-in 0.6s ease-out;
+}
+
+/* ==========================================================================
+   Estados de Interacción
+   ========================================================================== */
+.mikels-interactive:focus {
+  outline: 2px solid var(--mikels-primary);
+  outline-offset: 2px;
+}
+
+.mikels-loading {
+  position: relative;
+  overflow: hidden;
+}
+
+.mikels-loading::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+  animation: mikels-loading 1.5s infinite;
+}
+
+@keyframes mikels-loading {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
